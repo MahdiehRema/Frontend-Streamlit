@@ -5,14 +5,14 @@ import streamlit as st
 import bcavault
 
 
-def engine_oracle(db_user: str = "cidp_out") -> sqlalchemy.engine.base.Engine:
+def engine_oracle(db_user: str = "ciut") -> sqlalchemy.engine.base.Engine:
     """Baue eine Engine mittels SQLAlchemy für Oracle-Datenbanken.
 
     :param secret: Beinhaltet die secrets für die zu bauende Engine
     :returns: Eine SQLAlchemy-Engine
     """
     kv_engine = bcavault.KvSecretsEngine("analytics")
-    secret = kv_engine.read(f"database/vtdwh/{db_user}").to_dict()
+    secret = kv_engine.read(f"datse/vwh/{db_user}").to_dict()
     host = secret.get("host")
     port = secret.get("port")
     service = secret.get("service")
